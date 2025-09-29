@@ -14,9 +14,9 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 transition-colors duration-300">
     <!-- Header -->
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md transition-colors duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <i class="fas fa-seedling text-green-600 text-2xl"></i>
@@ -30,14 +30,20 @@
                     <li><a href="#contact" class="text-gray-700 hover:text-green-600 transition">Contact</a></li>
                 </ul>
             </nav>
-            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
-                <i class="fas fa-shopping-cart mr-2"></i>Cart (0)
-            </button>
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition">
+                    <i class="fas fa-moon text-gray-700"></i>
+                </button>
+                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                    <i class="fas fa-shopping-cart mr-2"></i>Cart (0)
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-green-500 to-teal-500 text-white py-20">
+    <section class="bg-gradient-to-r from-green-500 to-teal-500 text-white py-20 transition-colors duration-300">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">Fresh Flowers Delivered Daily</h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">Beautiful arrangements for every occasion. Hand-picked and locally sourced.</p>
@@ -53,7 +59,7 @@
     </section>
 
     <!-- Featured Flowers -->
-    <section id="flowers" class="py-16">
+    <section id="flowers" class="py-16 transition-colors duration-300">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Featured Flowers</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -106,7 +112,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-green-50">
+    <section id="about" class="py-16 bg-green-50 transition-colors duration-300">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">About Flower Shop 17</h2>
@@ -143,7 +149,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16">
+    <section id="contact" class="py-16 transition-colors duration-300">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
             <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
@@ -169,7 +175,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white py-12 transition-colors duration-300">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
