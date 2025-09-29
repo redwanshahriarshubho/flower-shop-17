@@ -8,15 +8,116 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-    
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom button hover effect */
+        .btn-hover {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s;
+        }
+
+        .btn-hover:hover::before {
+            left: 100%;
+        }
+
+        /* Black Theme Styles */
+        body.dark-theme {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-theme header {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-theme .bg-white {
+            background-color: #2d2d2d !important;
+        }
+
+        body.dark-theme .text-gray-800 {
+            color: #e0e0e0 !important;
+        }
+
+        body.dark-theme .text-gray-700 {
+            color: #e0e0e0 !important;
+        }
+
+        body.dark-theme .text-gray-600 {
+            color: #b0b0b0 !important;
+        }
+
+        body.dark-theme .border-gray-300 {
+            border-color: #444 !important;
+        }
+
+        body.dark-theme .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        body.dark-theme #about {
+            background-color: #1a1a1a !important;
+        }
+
+        body.dark-theme .bg-green-100 {
+            background-color: #2d4a2b !important;
+        }
+
+        body.dark-theme input, 
+        body.dark-theme textarea {
+            background-color: #2d2d2d !important;
+            color: #e0e0e0 !important;
+            border-color: #444 !important;
+        }
+
+        body.dark-theme input:focus, 
+        body.dark-theme textarea:focus {
+            border-color: #4ade80 !important;
+        }
+
+        body.dark-theme .fa-moon {
+            color: #f0f0f0 !important;
+        }
+
+        body.dark-theme #themeToggle {
+            background-color: #444 !important;
+        }
+
+        body.dark-theme #themeToggle:hover {
+            background-color: #555 !important;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 transition-colors duration-300">
     <!-- Header -->
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md transition-colors duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <i class="fas fa-seedling text-green-600 text-2xl"></i>
@@ -30,14 +131,20 @@
                     <li><a href="#contact" class="text-gray-700 hover:text-green-600 transition">Contact</a></li>
                 </ul>
             </nav>
-            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
-                <i class="fas fa-shopping-cart mr-2"></i>Cart (0)
-            </button>
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition">
+                    <i class="fas fa-moon text-gray-700"></i>
+                </button>
+                <button id="cart-button" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                    <i class="fas fa-shopping-cart mr-2"></i>Cart (0)
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-green-500 to-teal-500 text-white py-20">
+    <section class="bg-gradient-to-r from-green-500 to-teal-500 text-white py-20 transition-colors duration-300">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">Fresh Flowers Delivered Daily</h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">Beautiful arrangements for every occasion. Hand-picked and locally sourced.</p>
@@ -53,7 +160,7 @@
     </section>
 
     <!-- Featured Flowers -->
-    <section id="flowers" class="py-16">
+    <section id="flowers" class="py-16 transition-colors duration-300">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Featured Flowers</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -64,7 +171,7 @@
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Classic Rose Bouquet</h3>
                         <p class="text-gray-600 mb-4">Timeless red roses arranged in elegant wrapping</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-green-600 font-bold">$45.99</span>
+                            <span class="text-green-600 font-bold">৳5,059</span>
                             <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
                                 Add to Cart
                             </button>
@@ -79,7 +186,7 @@
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Sunflower Delight</h3>
                         <p class="text-gray-600 mb-4">Bright sunflowers to bring sunshine to any room</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-green-600 font-bold">$38.50</span>
+                            <span class="text-green-600 font-bold">৳4,235</span>
                             <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
                                 Add to Cart
                             </button>
@@ -94,7 +201,7 @@
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Spring Tulips</h3>
                         <p class="text-gray-600 mb-4">Colorful tulips in a modern glass vase</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-green-600 font-bold">$42.75</span>
+                            <span class="text-green-600 font-bold">৳4,703</span>
                             <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
                                 Add to Cart
                             </button>
@@ -106,7 +213,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-green-50">
+    <section id="about" class="py-16 bg-green-50 transition-colors duration-300">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">About Flower Shop 17</h2>
@@ -143,7 +250,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16">
+    <section id="contact" class="py-16 transition-colors duration-300">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
             <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
@@ -169,7 +276,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white py-12 transition-colors duration-300">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
@@ -200,7 +307,135 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle Functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const themeIcon = themeToggle.querySelector('i');
+
+            // Check for saved theme preference or default to light
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-theme');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                
+                // Update icon
+                if (body.classList.contains('dark-theme')) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // Cart functionality
+            let cartCount = 0;
+            let cartTotal = 0;
+            const cartButtons = document.querySelectorAll('.add-to-cart');
+            const cartElement = document.getElementById('cart-button');
+
+            // Product prices in Taka
+            const productPrices = {
+                'Classic Rose Bouquet': 5059,
+                'Sunflower Delight': 4235,
+                'Spring Tulips': 4703
+            };
+
+            cartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const card = button.closest('.bg-white');
+                    const productName = card.querySelector('h3').textContent;
+                    const price = productPrices[productName];
+                    
+                    cartCount++;
+                    cartTotal += price;
+                    
+                    // Update cart count in the navigation
+                    cartElement.innerHTML = `<i class="fas fa-shopping-cart mr-2"></i>Cart (${cartCount})`;
+                    
+                    // Visual feedback
+                    button.textContent = 'Added!';
+                    button.classList.add('bg-green-700');
+                    
+                    // Show notification
+                    showNotification(`${productName} added to cart for ৳${price.toLocaleString()}`);
+                    
+                    setTimeout(() => {
+                        button.textContent = 'Add to Cart';
+                        button.classList.remove('bg-green-700');
+                    }, 1500);
+                });
+            });
+
+            // Notification function
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+                notification.textContent = message;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Simple validation
+                    if (name && email && message) {
+                        // Show success message
+                        const formContainer = contactForm.parentElement;
+                        formContainer.innerHTML = `
+                            <div class="text-center py-8">
+                                <div class="text-green-500 text-5xl mb-4">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Thank You, ${name}!</h3>
+                                <p class="text-gray-600">We've received your message and will contact you soon at ${email}.</p>
+                            </div>
+                        `;
+                    }
+                });
+            }
+
+            // Add fade-in animation to sections
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
