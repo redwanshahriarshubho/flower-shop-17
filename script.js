@@ -1,4 +1,3 @@
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
@@ -15,8 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-theme');
-        
-        // Update icon
         if (body.classList.contains('dark-theme')) {
             themeIcon.classList.remove('fa-moon');
             themeIcon.classList.add('fa-sun');
@@ -32,14 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let cartCount = 0;
     let cartTotal = 0;
     const cartButtons = document.querySelectorAll('.add-to-cart');
-    // Use ID selector instead of :has() pseudo-class
     const cartElement = document.getElementById('cart-button');
 
     // Product prices in Taka
     const productPrices = {
         'Classic Rose Bouquet': 5059,
         'Sunflower Delight': 4235,
-        'Spring Tulips': 4703
+        'Spring Tulips': 4703,
+        'Lily Elegance': 5500,
+        'Orchid Bliss': 6200,
+        'Daisy Dream': 3800,
+        'Carnation Charm': 4100,
+        'Mixed Bloom Basket': 5800
     };
 
     cartButtons.forEach(button => {
@@ -47,20 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = button.closest('.bg-white');
             const productName = card.querySelector('h3').textContent;
             const price = productPrices[productName];
-            
+
             cartCount++;
             cartTotal += price;
-            
+
             // Update cart count in the navigation
             cartElement.innerHTML = `<i class="fas fa-shopping-cart mr-2"></i>Cart (${cartCount})`;
-            
+
             // Visual feedback
             button.textContent = 'Added!';
             button.classList.add('bg-green-700');
-            
+
             // Show notification
             showNotification(`${productName} added to cart for ৳${price.toLocaleString()}`);
-            
+
             setTimeout(() => {
                 button.textContent = 'Add to Cart';
                 button.classList.remove('bg-green-700');
@@ -73,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const notification = document.createElement('div');
         notification.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg z-50';
         notification.textContent = message;
-        
+
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.remove();
         }, 3000);
@@ -86,12 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            
+
             // Simple validation
             if (name && email && message) {
                 // Show success message
